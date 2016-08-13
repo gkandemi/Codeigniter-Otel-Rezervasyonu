@@ -5,7 +5,7 @@
             <!-- general form elements -->
             <div class="box box-primary">
                 <!-- form start -->
-                <form role="form" method="post" action="<?php echo base_url("roomproperties/edit/$row->id");?>">
+                <form role="form" method="post" action="<?php echo base_url("roomextraservices/edit/$row->id");?>">
                     <div class="box-body col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Özellik Adı</label>

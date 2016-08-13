@@ -57,7 +57,7 @@ $activeItem = $this->session->userdata("activeItem");
                         <a href="<?php echo base_url("roomproperties");?>"><i class="fa fa-circle-o"></i> Özellikler</a>
                     </li>
                     <li class="<?php echo ($activeItem == "room_extra_services") ? "active" : ""; ?>" id="room_extra_services">
-                        <a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Ekstra Servisler</a>
+                        <a href="<?php echo base_url("roomextraservices");?>"><i class="fa fa-circle-o"></i> Ekstra Servisler</a>
                     </li>
                 </ul>
             </li>

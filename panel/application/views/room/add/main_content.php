@@ -51,11 +51,9 @@
                         <div class="form-group">
                             <label>Kategorisi</label>
                             <select class="form-control" name="room_type_id">
-
-                                <?php foreach (get_room_category() as $category){ ?>
+                                <?php foreach (get_room_category(array("isActive" => 1)) as $category){ ?>
                                     <option value="<?php echo $category->id; ?>"><?php echo $category->title; ?></option>
                                 <?php } ?>
-
                             </select>
                         </div>
                     </div>
@@ -76,8 +74,8 @@
                     <div class="box-body col-md-6">
                         <div class="form-group">
                             <label>Özellikler</label>
-                            <select name="room_properties[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
-                                <?php foreach (get_room_properties() as $property){ ?>
+                            <select name="room_properties[]" class="form-control select2" multiple="multiple" data-placeholder="Özellik Seçiniz" style="width: 100%;">
+                                <?php foreach (get_room_properties(array("isActive" => 1)) as $property){ ?>
                                     <option value="<?php echo $property->id; ?>"><?php echo $property->title; ?></option>
                                 <?php } ?>
                             </select>
@@ -87,14 +85,10 @@
                     <div class="box-body col-md-6">
                         <div class="form-group">
                             <label>Ekstra Servisler</label>
-                            <select name="room_extra_services[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
-                                <option><i class="fa fa-user"></i> </option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
+                            <select name="room_extra_services[]" class="form-control select2" multiple="multiple" data-placeholder="Ekstra Servis Seçiniz" style="width: 100%;">
+                                <?php foreach (get_room_extra_services(array("isActive" => 1)) as $row){ ?>
+                                    <option value="<?php echo $row->id; ?>"><?php echo $row->title; ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>

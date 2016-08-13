@@ -8,8 +8,8 @@
                 <form role="form" method="post" action="<?php echo base_url("roomproperties/add");?>">
                     <div class="box-body col-md-6">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Kategori Adı</label>
-                            <input type="text" class="form-control" name="title" placeholder="Kategori adını giriniz..">
+                            <label for="exampleInputEmail1">Özellik Adı</label>
+                            <input type="text" class="form-control" name="title" placeholder="Özellik adını giriniz..">
                         </div>
                     </div>
                     <!-- /.box-body -->
