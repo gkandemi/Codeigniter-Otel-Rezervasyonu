@@ -237,13 +237,17 @@ class Room extends CI_Controller
 
 	public function newAvailabilityPage($room_id){
 
-		$viewData = new stdClass();
-		$viewData->room_id = $room_id;
-		$viewData->availabilities = $this->roomavailability_model->get_all(array(
-			"room_id"	=> $room_id,
-			"daily_date >= " => date("Y-m-d")
 
-		), "daily_date ASC");
+		$viewData =  new stdClass();
+		$viewData->room_id = $room_id;
+
+		$viewData->availabilities = $this->roomavailability_model->get_all(
+			array(
+				"room_id"	=> $room_id,
+				"daily_date >=" => date("Y-m-d")
+			),"daily_date ASC"
+		);
+
 
 		$this->load->view("new_roomavailability", $viewData);
 
@@ -252,52 +256,52 @@ class Room extends CI_Controller
 
 	public function addNewAvailability($room_id){
 
-		$availability_date = explode("-",$this->input->post("availability_date"));
+		//08/10/2016 - 08/25/2016
 
-		// 08/15/2016
-		// Y-m-d
-		// 2016-01-25
+		// 2016-08-10
 
-		$startDateArr 	= explode("/",$availability_date[0]);
-		$finisDateArr 	= explode("/",$availability_date[1]);
+		$availability_date = explode("-", $this->input->post("availability_date"));
+		$startDateArr  = explode("/", $availability_date[0]);
+		$finishDateArr = explode("/",$availability_date[1]);
 
-		$startDateStr	= trim($startDateArr[2]) . "-" . trim($startDateArr[0]) . "-" . trim($startDateArr[1]);
-		$finisDateStr	= trim($finisDateArr[2]) . "-" . trim($finisDateArr[0]) . "-" . trim($finisDateArr[1]);
+		$startDateStr  = trim($startDateArr[2]) . "-" . trim($startDateArr[0]) . "-" . trim($startDateArr[1]);
+		$finishDateStr = trim($finishDateArr[2]) . "-" . trim($finishDateArr[0]) . "-" . trim($finishDateArr[1]);
 
-		$startDate 		= new DateTime($startDateStr);
-		$finisDate_ 	= date("Y-m-d",strtotime('1 day', strtotime($finisDateStr)));
-		$finisDate 		= new DateTime($finisDate_);
+		$startDate  = new DateTime($startDateStr);
+		$finishDate = new DateTime(date("Y-m-d", strtotime("1 day" ,strtotime($finishDateStr))));
 
-		$interval 		= DateInterval::createFromDateString('1 day');
-		$period 		= new DatePeriod($startDate, $interval, $finisDate);
+		$interval = DateInterval::createFromDateString("1 day");
 
-		foreach($period as $date){
+		$period = new DatePeriod($startDate, $interval, $finishDate);
 
-				$record_test = $this->roomavailability_model->get(
-					array(
-						"room_id" 			=> $room_id,
-						"daily_date"	=> $date->format("Y-m-d")
-					)
-				);
+		foreach ($period as $date){
+
+
+			$record_test = $this->roomavailability_model->get(
+				array(
+					"room_id"	=> $room_id,
+					"daily_date"	=> $date->format("Y-m-d")
+				)
+			);
 
 			if(empty($record_test)) {
 
-				$this->roomavailability_model->add(array(
+				$this->roomavailability_model->add(
+					array(
 						"daily_date" => $date->format("Y-m-d"),
 						"room_id" => $room_id,
 						"status" => 1
 					)
-
 				);
 			}
 
 		}
 
-		redirect(base_url("room"));
+		redirect(base_url("room/newAvailabilityPage/$room_id"));
+
+
 
 	}
 
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

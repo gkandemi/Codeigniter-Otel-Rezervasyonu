@@ -25,41 +25,40 @@ function get_room_extra_services($where = array())
 }
     
 
-    function get_day_from_eng($day){
+function get_day_from_eng($day){
 
-        $days = array(
-            "Mon"   => "Pzt",
-            "Tue"   => "Sal",
-            "Wed"   => "Çar",
-            "Thu"   => "Per",
-            "Fri"   => "Cum",
-            "Sat"   => "Cmt",
-            "Sun"   => "Pz"
-        );
+    $days = array(
+        "Mon"   => "Pzt",
+        "Tue"   => "Sal",
+        "Wed"   => "Çar",
+        "Thu"   => "Per",
+        "Fri"   => "Cum",
+        "Sat"   => "Cmt",
+        "Sun"   => "Paz",
+    );
 
-        return  $days[$day];
-    }
+    return $days[$day];
+}
+function get_month_from_eng($month){
 
-    function get_month_from_eng($day){
+    $months = array(
+        "Jan"   => "Oca",
+        "Feb"   => "Şub",
+        "Mar"   => "Mar",
+        "Apr"   => "Nis",
+        "May"   => "May",
+        "Jun"   => "Haz",
+        "Jul"   => "Tem",
+        "Aug"   => "Ağu",
+        "Sep"   => "Eyl",
+        "Oct"   => "Eki",
+        "Nov"   => "Kas",
+        "Dec"   => "Ara",
+    );
 
-        $days = array(
-            "Jan"   => "Oca",
-            "Feb"   => "Şub",
-            "Mar"   => "Mar",
-            "Apr"   => "Nis",
-            "May"   => "May",
-            "Jun"   => "Haz",
-            "Jul"   => "Tem",
-            "Aug"   => "Ağu",
-            "Sep"   => "Eyl",
-            "Oct"   => "Eki",
-            "Nov"   => "Kas",
-            "Dec"   => "Ara",
+    return $months[$month];
+}
 
-        );
-
-        return  $days[$day];
-    }
 
 
 

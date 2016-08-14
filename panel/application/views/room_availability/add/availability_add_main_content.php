@@ -22,23 +22,25 @@
         </div>
     </div>
 
-    <br>
-    <div class="row">
-        <div class="col-md-12">
 
-            <ul class="availability_table">
-               <?php foreach($availabilities as $availability){ ?>
-                   <?php
-                        $date = new DateTime($availability->daily_date);
-                        $color = ($availability->status == 1) ? "green" : "red";
-                   ?>
-                   <li class="bg-<?php echo $color; ?>"><?php echo "<span><b>" . $date->format("d") ."</b></span>" . "<br>" . get_month_from_eng($date->format("M")) . "<br>" . get_day_from_eng($date->format("D")); ?></li>
-               <?php } ?>
-            </ul>
+   <div class="box box-primary mt10">
 
-        </div>
-    </div>
+       <ul class="availability_table">
+           <?php foreach($availabilities as $availability){ ?>
+               <?php
+                    $date  = new DateTime($availability->daily_date);
+                    $color = ($availability->status) ? "green" : "red";
+               ?>
 
+
+               <li class="bg-<?php echo $color; ?>"><?php echo $date->format("d") . "<br>" . get_month_from_eng($date->format("M")) . "<br>" . get_day_from_eng($date->format("D")) ?> </li>
+
+            <?php } ?>
+       </ul>
+
+
+
+   </div>
 
 </section>
 <!-- /.content -->
