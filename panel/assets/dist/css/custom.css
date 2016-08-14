@@ -1,3 +1,27 @@
 .mb10{
     margin-bottom:10px!important;
 }
+
+.removeBtn{
+    cursor: pointer;
+}
+
+
+/* availability table*/
+
+.availability_table{
+
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.availability_table li {
+    float: left;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-style: italic;
+    margin:0px 3px 3px 0px;
+    width: 40px;
+}

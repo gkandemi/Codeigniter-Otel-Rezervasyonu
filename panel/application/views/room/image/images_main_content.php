@@ -27,12 +27,15 @@
                         <?php foreach($rows as $row) { ?>
                             <tr id="sortId-<?php echo $row->id;?>">
                                 <td>
-                                    <img
-                                        width="80"
-                                        src="<?php echo base_url("uploads") . "/" . $row->img_id; ?>"
-                                        alt="<?php echo $row->img_id; ?>"
-                                        class="img-responsive"
-                                    />
+                                    <a class="thumbnail fancybox" rel="ligthbox" href="<?php echo base_url("uploads") . "/" . $row->img_id; ?>">
+                                        <img
+                                            width="80"
+                                            src="<?php echo base_url("uploads") . "/" . $row->img_id; ?>"
+                                            alt="<?php echo $row->img_id; ?>"
+                                            class="img-responsive"
+                                        />
+                                    </a>
+
                                 </td>
                                 <td>
                                     <input class = "toggle_check"
@@ -73,10 +76,8 @@
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
-
-
+        </div>
     </div>
-
 
 </section>
 <!-- /.content -->

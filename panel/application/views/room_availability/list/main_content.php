@@ -2,33 +2,21 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-            <a href="<?php echo  base_url("room/newPage");?>" class="btn btn-sm btn-primary mb10"><i class="fa fa-plus"></i> Ekle</a>
+            <a href="<?php echo  base_url("roomproperties/newPage");?>" class="btn btn-sm btn-primary mb10"><i class="fa fa-plus"></i> Ekle</a>
             <div class="box">
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <thead>
-                            <th>Oda No</th>
+                            <th>id</th>
                             <th>Başlık</th>
-                            <th>Boyut(m<sup>2</sup>)</th>
-                            <th>Fiyat</th>
-                            <th>Kategori</th>
-                            <th>Kapasite</th>
-                            <th>Özellikler</th>
-                            <th>Ekstra Servisler</th>
                             <th>isActive</th>
                             <th class="col-md-2">İşlemler</th>
                         </thead>
-                        <tbody class="sortableList" postUrl="room/rankUpdate">
+                        <tbody class="sortableList" postUrl="roomproperties/rankUpdate">
                             <?php foreach($rows as $row) { ?>
                                 <tr id="sortId-<?php echo $row->id;?>">
-                                    <td><?php echo $row->room_code;?></td>
+                                    <td>#<?php echo $row->id; ?></td>
                                     <td><?php echo $row->title;?></td>
-                                    <td><?php echo $row->size;?></td>
-                                    <td><?php echo $row->default_price;?></td>
-                                    <td><?php echo $row->room_type_id;?></td>
-                                    <td><?php echo $row->room_capacity;?></td>
-                                    <td><?php echo $row->room_properties;?></td>
-                                    <td><?php echo $row->room_extra_services;?></td>
                                     <td>
                                         <input class = "toggle_check"
                                                data-onstyle="success"
@@ -43,22 +31,12 @@
                                         >
                                     </td>
                                     <td>
-                                        <a href="<?php echo base_url("room/editPage/$row->id");?>">
+                                        <a href="<?php echo base_url("roomproperties/editPage/$row->id");?>">
                                             <i class="fa fa-edit" style="font-size:16px;"></i>
                                         </a>
-                                        <a class="removeBtn"  dataURL="<?php echo base_url("room/delete/$row->id"); ?>">
+                                        <a href="<?php echo base_url("roomproperties/delete/$row->id"); ?>">
                                             <i class="fa fa-trash" style="font-size:16px;"></i>
                                         </a>
-
-                                        <a href="<?php echo base_url("room/imageUploadPage/$row->id"); ?>">
-                                            <i class="fa fa-image" style="font-size:16px;"></i>
-                                        </a>
-
-                                        <a href="<?php echo base_url("room/newAvailabilityPage/$row->id"); ?>">
-                                            <i class="fa fa-calendar" style="font-size:16px;"></i>
-                                        </a>
-
-
                                     </td>
                                 </tr>
                         <?php } ?>

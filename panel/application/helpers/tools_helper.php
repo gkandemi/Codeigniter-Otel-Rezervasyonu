@@ -23,6 +23,45 @@ function get_room_extra_services($where = array())
     $CI->load->model("roomextraservices_model");
     return $CI->roomextraservices_model->get_all($where);
 }
+    
+
+    function get_day_from_eng($day){
+
+        $days = array(
+            "Mon"   => "Pzt",
+            "Tue"   => "Sal",
+            "Wed"   => "Çar",
+            "Thu"   => "Per",
+            "Fri"   => "Cum",
+            "Sat"   => "Cmt",
+            "Sun"   => "Pz"
+        );
+
+        return  $days[$day];
+    }
+
+    function get_month_from_eng($day){
+
+        $days = array(
+            "Jan"   => "Oca",
+            "Feb"   => "Şub",
+            "Mar"   => "Mar",
+            "Apr"   => "Nis",
+            "May"   => "May",
+            "Jun"   => "Haz",
+            "Jul"   => "Tem",
+            "Aug"   => "Ağu",
+            "Sep"   => "Eyl",
+            "Oct"   => "Eki",
+            "Nov"   => "Kas",
+            "Dec"   => "Ara",
+
+        );
+
+        return  $days[$day];
+    }
+
+
 
 
 function get_folder_list($dir)

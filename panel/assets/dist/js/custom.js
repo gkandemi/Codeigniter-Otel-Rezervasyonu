@@ -28,4 +28,15 @@ $(document).ready(function () {
 
     })
 
+    // Confirm
+    $(".removeBtn").click(function () {
+
+        var dataURL = $(this).attr("dataURL");
+        var  remove = bootbox.confirm("Silmek istiyor musunuz ?", function(result) {
+            if (result == true) {
+                window.location.href = dataURL;
+            }
+        });
+    });
+
 })

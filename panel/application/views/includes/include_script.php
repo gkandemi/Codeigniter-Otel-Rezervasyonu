@@ -13,6 +13,8 @@
 <script src="<?php echo base_url("assets");?>/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url("assets");?>/dist/js/demo.js"></script>
+<!-- Confirm Plugin -->
+<script src="<?php echo base_url("assets"); ?>/dist/js/third_party/bootbox.min.js"></script>
 
 <script src="<?php echo base_url("assets");?>/dist/js/custom.js"></script>
 
