@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* Starhotel template color: Purple 
+				HEX = #e331bf
+				RGB = 227, 49, 191
+====================================================  				
+*/
+
+/* Basic Styles 
+-------------------------------------------------- */
+/* Links color */
+a {
+	color: #e331bf;
+}
+/* Secondary text color */
+#reservation-form .price, label span, .room-thumb .main .price, .room-thumb .content p span, .blog-author span, #owl-reviews .text-balloon span, .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight, .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, aside .widget ul a:hover, .yamm a:hover, .pagination > li > a {
+	color: #e331bf !important;
+}
+/* Icon color */
+#reservation-form .fa.infield, #reservation-form .form-inline .fa.infield, .room-thumb .content i, .box-icon i, table i, #go-top i, .testimonials .owl-theme .owl-controls .owl-buttons div i, .standard-slider .owl-theme .owl-controls .owl-buttons div i, .testimonials .owl-theme .owl-controls .owl-buttons div, .standard-slider .owl-theme .owl-controls .owl-buttons div, #go-top {
+	color: #e331bf;
+}
+/* UI border color */ 
+header, .navbar-nav .dropdown-menu, .blog-author img, .comment .avatar img, aside h3, blockquote, .ui-widget-header, .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight, .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, #owl-gallery, #owl-reviews img, .parallax-effect, .revolution-slider, .testimonials .owl-theme .owl-controls .owl-buttons div, .standard-slider .owl-theme .owl-controls .owl-buttons div, #go-top, .box-icon .circle, .testimonials .owl-theme .owl-controls .owl-buttons div, .standard-slider .owl-theme .owl-controls .owl-buttons div, #map {
+	border-color: #e331bf !important;
+}
+/* UI background color */
+#top-header .th-text .th-item .btn-group ul.dropdown-menu > li > a:hover, article .meta-date, .comment .reply-button, aside .widget .tags a, aside .widget ul a:hover .badge, #call-to-action, .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus, #go-top:hover, .testimonials .owl-theme .owl-controls .owl-buttons div:hover, .standard-slider .owl-theme .owl-controls .owl-buttons div:hover, .box-icon .circle:hover, .gallery a i, .gallery-slider a i {
+	background: #e331bf;
+}
+/* RGB background color */
+.room-thumb .main .price, .comment, .table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th, .panel-default > .panel-heading {
+	background-color: rgba(227, 49, 191, 0.05);
+}
+.parallax-effect .color-overlay {
+	background-color: rgba(227, 49, 191, 0.8);
+}
+/* Header
+-------------------------------------------------- */
+/* Navigation text colors */
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .dropdown-menu > li > a:focus {
+	color: #e331bf;
+}
+/* Navigation Mobile colors */
+ @media (max-width: 767px) {
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+	color: #e331bf;
+	background-color: transparent;
+}
+}
+/*Primary Button Color
+-------------------------------------------------- */
+.btn-default {
+	color: #e331bf;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+	color: #e331bf;
+}
+.btn-primary {
+	background-color: #e331bf;
+	border-color: #b90a96;
+	text-shadow: 0 -1px 0 #c026a1;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+	background-color: #f449d2;
+	border-color: #cf0ba7;
+	color: #fff;
+}

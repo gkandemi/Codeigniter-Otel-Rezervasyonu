@@ -1,0 +1,411 @@
+@charset "utf-8";
+/* Table of contents - Starhotel:Responsive CSS by Slashdown
+====================================================  
+*/
+
+/* Larger Screen Devices
+-------------------------------------------------- */
+
+/* Medium Devices 
+-------------------------------------------------- */
+
+/* Small Devices(tablets) 
+-------------------------------------------------- */
+
+/* Extra Small Devices(phones)
+-------------------------------------------------- */
+
+/* High Resolution Devices 
+-------------------------------------------------- */
+
+/* Smallest browser width fix
+-------------------------------------------------- */
+
+/* Larger Screens Devices
+-------------------------------------------------- */
+ @media (min-width: 768px) {
+.boxed .navbar {
+	max-width: 1170px;
+}
+.boxed .navbar .container {
+	margin: 0;
+}
+}
+/* Medium Devices
+-------------------------------------------------- */
+ @media (min-width: 992px) and (max-width: 1199px) {
+/* Room thumbnails */
+.room-thumb {
+	font-size: 12px;
+}
+.room-thumb, .room-thumb .mask {
+	width: 100%;
+	height: 224px;
+}
+.room-thumb .main h5 {
+	padding: 0 10px;
+}
+.room-thumb .main .price {
+	padding: 10px;
+	font-size: 12px;
+	border-right: none;
+}
+.room-thumb .main, .room-thumb .main .price {
+	height: 35px;
+}
+.room-thumb .mask {
+	background-color: #fff;
+	-webkit-transform: translateY(188px);
+	-moz-transform: translateY(188px);
+	-o-transform: translateY(188px);
+	-ms-transform: translateY(188px);
+	transform: translateY(188px);
+}
+.room-thumb .content {
+	padding: 10px;
+}
+.room-thumb .main .price span {
+	display: none;
+}
+.room-thumb .content .btn {
+	margin-top: 0;
+}
+.room-thumb .btn-lg {
+	padding: 6px 16px;
+	font-size: 14px;
+}
+/* Reservation form price */
+#reservation-form .price h4 {
+	width: 100%;
+}
+}
+/* Small Devices (tablets)
+-------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 991px) {
+/* Navbar */
+.navbar-nav > li > a {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+header #logo, .navbar.shrink #logo {
+	padding-right: 30px;
+}
+.navbar-nav > li:first-child {
+	padding-left: 20px;
+}
+/* Reservation Form */
+#reservation-form .reservation-horizontal {
+	padding: 25px;
+}
+#reservation-form .reservation-horizontal .col-sm-1, #reservation-form .reservation-horizontal .col-sm-2, #reservation-form .reservation-horizontal .col-sm-3 {
+	padding-right: 5px;
+}
+#reservation-form .reservation-horizontal {
+	font-size: 12px;
+}
+#reservation-form .form-inline .fa.infield {
+	display: none;
+}
+#reservation-form .col-sm-2 button {
+	margin-top: 22px;
+}
+/* Room thumbnails */
+.room-thumb, .room-thumb .mask {
+	width: 100%;
+	height: 176px;
+}
+.room-thumb .main h5 {
+	padding: 0 10px;
+	font-size: 12px;
+}
+.room-thumb .main .price {
+	padding: 10px;
+	font-size: 12px;
+	border-right: none;
+}
+.room-thumb .main, .room-thumb .main .price {
+	height: 35px;
+}
+.room-thumb .mask {
+	background-color: #fff;
+	-webkit-transform: translateY(141px);
+	-moz-transform: translateY(141px);
+	-o-transform: translateY(141px);
+	-ms-transform: translateY(141px);
+	transform: translateY(141px);
+}
+.room-thumb .content {
+	padding: 10px;
+	font-size: 10px;
+}
+.room-thumb .main .price span {
+	display: none;
+}
+.room-thumb .content .btn {
+	margin-top: 0;
+}
+.room-thumb .btn-lg {
+	padding: 6px 16px;
+	font-size: 14px;
+}
+.room-thumb .mask p {
+	display: none;
+}
+/* Parallax Slider */
+.parallax-effect #parallax-image {
+	background-position: 0 0 !important;
+	margin-top: 0;
+}
+.parallax-effect #parallax-pagetitle {
+	background-position: 0 0 !important;
+	margin-top: 0;
+}
+}
+/* Extra small devices(phones)
+-------------------------------------------------- */
+@media (max-width: 767px) {
+body {
+	font-size: 13px;
+}
+/* Top Header */
+#top-header .pull-left, #top-header .th-text .social-icons {
+	display: none;
+}
+#top-header .pull-right {
+	float: none !important;
+}
+#top-header .col-xs-6 {
+	width: 100%;
+	margin: 0 auto;
+}
+#top-header .th-text .th-item {
+	padding: 0;
+	line-height: 10px;
+	border-right: none;
+}
+.sticky-wrapper {
+	max-height: 74px;
+}
+/* Navbar */
+.navbar-brand{
+height: inherit;
+}
+.navbar-nav {
+	margin: 0 -15px;
+}
+.navbar-collapse {
+}
+.navbar-default .navbar-toggle {
+	border-color: #e1e1e1;
+	margin-top: 20px;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: #fff;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #cccccc;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li {
+	color: #5e5e5e;
+	font-size: 13px;
+	background-color: transparent;
+	border-bottom: 1px dotted #e1e1e1;
+	padding: 10px 15px;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li:last-child {
+	border: none;
+}
+.navbar-default .navbar-nav > li {
+	border-bottom: 1px solid #e1e1e1;
+}
+.navbar-default .navbar-nav > li > a {
+	padding: 15px 15px 15px 15px;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+	border-bottom: 1px solid #e1e1e1;
+}
+.navbar-default .navbar-nav li:last-child {
+	border-bottom: none;
+}
+.navbar-default .navbar-nav .open .dropdown-menu {
+	padding: 0;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+	background-color: transparent;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+	background-color: transparent;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+	color: #cccccc;
+	background-color: transparent;
+}
+.yamm, .yamm a, .yamm p {
+	font-size: 13px;
+}
+.yamm .yamm-content {
+	margin-left: 10px;
+}
+.yamm .yamm-content ul {
+	margin-bottom: 20px;
+}
+/* Room-thumb */
+.room-thumb {
+	margin-bottom: 50px;
+}
+.room-thumb, .room-thumb .mask {
+	width: 100%;
+	height: auto;
+}
+.room-thumb .mask {
+	position: relative;
+	background-color: #fff;
+	-webkit-transform: translateY(0%);
+	-moz-transform: translateY(0%);
+	-o-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+	transform: translateY(0%);
+}
+.room-thumb:hover .mask {
+	-webkit-transform: none;
+	-moz-transform: none;
+	-o-transform: none;
+	-ms-transform: none;
+	transform: none;
+}
+.room-thumb:hover img {
+	-webkit-transform: none;
+	-moz-transform: none;
+	-o-transform: none;
+	-ms-transform: none;
+	transform: none;
+}
+.room-thumb .main .price {
+	border-right: none;
+}
+/* Reservation Form */
+section#reservation-form {
+	margin-top: 20px;
+}
+#reservation-form .guests {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	margin-top: -254px;
+}
+/* Owl Reviews */
+#owl-reviews .text-balloon:before, #owl-reviews .text-balloon:after {
+	border: none;
+}
+#owl-reviews img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5px;
+}
+#owl-reviews .text-balloon {
+	margin-bottom: 20px;
+}
+.room-slider .owl-theme .owl-controls .owl-buttons div {
+	display: none;
+}
+/* Parallax Effect */
+.parallax-effect #parallax-image {
+	background-position: 0 0 !important;
+	margin-top: 0;
+}
+.parallax-effect #parallax-pagetitle {
+	background-position: 0 0 !important;
+	margin-top: 0;
+}
+/* Go-Top Button */
+#go-top {
+	display: none !important;
+}
+/* Call-to-action */
+#call-to-action {
+	text-align: center;
+}
+#call-to-action h2 {
+	margin: 20px 0;
+}
+#call-to-action .btn {
+	display: block;
+	margin-top: 0;
+	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	float: none !important;
+}
+/* Footer */
+footer {
+	padding: 0;
+}
+footer h4 {
+	margin: 50px 0 20px 0;
+}
+}
+/* Smallest browser width fix
+-------------------------------------------------- */
+@media (min-width: 0px) and (max-width: 351px) {
+.parallax-effect .content {
+padding: 10px 0 0 0;
+}
+.parallax-effect h1 {
+margin-top: 0;
+}
+.breadcrumb{
+margin: 15px 0 10px 0;
+}
+}
+@media (min-width: 0px) and (max-width: 300px) {
+body{
+min-width: 280px;
+}
+.navbar-brand{
+padding: 15px 2px;
+}
+.parallax-effect h1{
+margin-top: -17px;
+}
+}
+/* High Resolution Devices 
+-------------------------------------------------- */
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
+/* Logo */
+   header #logo #retina-logo {
+ display: block;
+}
+ header #logo #default-logo {
+ display: none;
+}
+/* Background patterns */
+.pattern-1 {
+	background:url(../images/patterns/xv_@2X.png) center center repeat;
+}
+.pattern-2 {
+	background:url(../images/patterns/purty_wood_@2X.png) center center repeat;
+}
+.pattern-3 {
+	background:url(../images/patterns/hexellence_@2X.png) center center repeat;
+}		
+.pattern-4 {
+	background:url(../images/patterns/brushed_alu_@2X.png) center center repeat;
+}
+.pattern-5 {
+	background:url(../images/patterns/grid_noise_@2X.png) center center repeat;
+}
+.pattern-6 {
+	background:url(../images/patterns/diamond_upholstery_@2X.png) center center repeat;
+}
+.pattern-7 {
+	background:url(../images/patterns/escheresque_@2X.png) center center repeat;
+}
+.pattern-8 {
+	background:url(../images/patterns/knitting250px_@2X.png) center center repeat;
+}
+.pattern-9 {
+	background:url(../images/patterns/bo_play_pattern_@2X.png) center center repeat;
+}
+}

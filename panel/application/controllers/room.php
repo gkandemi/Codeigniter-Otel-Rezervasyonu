@@ -15,7 +15,6 @@ class Room extends CI_Controller
 	public function index()
 	{
 
-
 		$viewData = new stdClass();
 		$viewData->rows = $this->room_model->get_all(array(),"rank ASC");
 

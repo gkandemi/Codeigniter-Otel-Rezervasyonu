@@ -1,0 +1,7 @@
+.mb10{
+    margin-bottom: 10px;
+}
+
+.mask .content p:first-child{
+    height: 50px;
+}
