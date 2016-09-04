@@ -13,25 +13,38 @@
                     <div class="col-sm-4 mb10">
                         <div class="room-thumb">
 
-                            <?php $image         = $cover_image_list[$room->id];?>
+                            <?php
 
-                            <?php if(file_exists(FCPATH . "/panel/uploads/$image")){ ?>
-                                <img
-                                    src="<?php echo base_url("panel/uploads/$image"); ?>"
-                                    alt="<?php echo $room->title; ?>"
-                                    class="img-responsive"
-                                />
-                            <?php } else { ?>
-                                <img
-                                    src="<?php echo base_url("assets");?>/images/rooms/room1.jpg"
-                                    alt="<?php echo $contact->title; ?>"
-                                    class="img-responsive"
-                                />
-                            <?php } ?>
+                                if(key_exists($room->id, $cover_image_list)){
+
+                                    $image = base_url("panel/uploads/"). "/" .$cover_image_list[$room->id];
+
+                                    if(!file_exists(FCPATH . "/panel/uploads/" . $cover_image_list[$room->id])){
+                                        $image = base_url("assets") ."/images/rooms/room1.jpg";
+                                    }
+
+                                }else{
+                                    $image = base_url("assets") ."/images/rooms/room1.jpg";
+                                }
+                            ?>
+
+                            <img
+                                src="<?php echo $image; ?>"
+                                alt="<?php echo $room->title; ?>"
+                                class="img-responsive" />
+
                             <div class="mask">
                                 <div class="main">
                                     <h5><?php echo $room->title; ?></h5>
-                                    <div class="price">&euro; <?php echo $room->default_price; ?><span> gecelik</span></div>
+                                    <div class="price">
+                                        <?php $price = get_prices(array("room_id"=> $room->id,"date" => date(date("Y-m-d"))));
+                                        if($price == "null"){
+                                        echo $room->default_price;
+                                        }else{
+                                        echo $price;
+                                        } ?>
+                                        <span> gecelik</span>
+                                    </div>
                                 </div>
                                 <div class="content">
                                     <div style="height: 100px;">
@@ -55,7 +68,7 @@
                                         </div>
 
                                     </div>
-                                    <a href="room-detail.html" class="btn btn-primary btn-block">Görüntüle</a>
+                                    <a href="<?php echo base_url("room/room_detail/$room->id"); ?>" class="btn btn-primary btn-block">Görüntüle</a>
                                 </div>
                             </div>
                         </div>

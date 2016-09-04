@@ -18,6 +18,9 @@ $route["roomextraservices/(.*)"] = "roomextraservices/$1";
 $route["room"]      = "room/index";
 $route["room/(.*)"] = "room/$1";
 
+$route["price"]      = "price/index";
+$route["price/(.*)"] = "price/$1";
+
 $route["^(.*)"] = "index/$1";
 
 /* End of file routes.php */

@@ -1,5 +1,9 @@
 <?php
 
+function get_month($date){
+    return date("d", strtotime($date)) . " " . get_month_from_eng(date("M", strtotime($date))) . " " . get_day_from_eng(date("D", strtotime($date)));
+}
+
 function get_class_name($str){
 
     $str = strtolower($str);
@@ -11,7 +15,6 @@ function get_class_name($str){
 
     return $class;
 }
-
 
 function get_room_category()
 {
@@ -36,7 +39,6 @@ function get_room_extra_services($where = array())
     $CI->load->model("roomextraservices_model");
     return $CI->roomextraservices_model->get_all($where);
 }
-    
 
 function get_day_from_eng($day){
 
@@ -52,6 +54,7 @@ function get_day_from_eng($day){
 
     return $days[$day];
 }
+
 function get_month_from_eng($month){
 
     $months = array(
@@ -71,10 +74,6 @@ function get_month_from_eng($month){
 
     return $months[$month];
 }
-
-
-
-
 
 function get_folder_list($dir)
 {
@@ -113,6 +112,21 @@ function get_images($dir = "")
     }
 
     return $imageList;
+}
+
+function get_prices($where=array())
+{
+    $CI = &get_instance();
+    $CI->load->model("roompricing_model");
+    $times = $CI->roompricing_model->get_all($where);
+    $price = "null";
+    foreach($times as $time){
+        if($times){
+            $price = $time->price;
+    }
+    }
+    return $price;
+
 }
 
 

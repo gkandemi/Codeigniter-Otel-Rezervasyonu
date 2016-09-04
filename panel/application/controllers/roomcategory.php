@@ -70,9 +70,6 @@ class Roomcategory extends CI_Controller
 		}
 	}
 
-
-
-
 	public function isActiveSetter(){
 
 		$id 	  = $this->input->post("id");

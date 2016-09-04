@@ -63,6 +63,12 @@ class roomavailability_model extends CI_Model
         return $delete;
     }
 
+    public function query($query_text){
+
+        return $this->db->query($query_text)->result();
+
+    }
+
     public function get_insert_id(){
 
         return $this->db->insert_id();

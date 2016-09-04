@@ -45,17 +45,24 @@
                                     <td>
                                         <a href="<?php echo base_url("room/editPage/$row->id");?>">
                                             <i class="fa fa-edit" style="font-size:16px;"></i>
-                                        </a>
+                                        </a> |
                                         <a class="removeBtn"  dataURL="<?php echo base_url("room/delete/$row->id"); ?>">
                                             <i class="fa fa-trash" style="font-size:16px;"></i>
-                                        </a>
+                                        </a> |
 
                                         <a href="<?php echo base_url("room/imageUploadPage/$row->id"); ?>">
                                             <i class="fa fa-image" style="font-size:16px;"></i>
-                                        </a>
+                                        </a> |
 
                                         <a href="<?php echo base_url("room/newAvailabilityPage/$row->id"); ?>">
                                             <i class="fa fa-calendar" style="font-size:16px;"></i>
+                                        </a> |
+
+                                        <a href="<?php echo base_url("room/newPricingPage/$row->id"); ?>">
+                                            <i class="fa fa-dollar" style="font-size:16px;"></i>
+                                        </a> |
+                                        <a href="<?php echo base_url("room/getPricePage/$row->id"); ?>">
+                                            <i class="fa fa-gear" style="font-size:16px;"></i>
                                         </a>
 
 

@@ -36,7 +36,6 @@ $activeItem = $this->session->userdata("activeItem");
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
             </li>
 
-
             <li class="treeview <?php echo ($parent == "room_folder") ? "active" : ""; ?>">
                 <a href="#">
                     <i class="fa fa-bed"></i>
@@ -61,7 +60,6 @@ $activeItem = $this->session->userdata("activeItem");
                     </li>
                 </ul>
             </li>
-
 <!--            <li class="treeview --><?php //echo ($parent == "reservation_folder") ? "active" : ""; ?><!--">-->
 <!--                <a href="#">-->
 <!--                    <i class="fa fa-bed"></i>-->

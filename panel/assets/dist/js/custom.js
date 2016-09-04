@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
+
     var base_url = $(".base_url").text();
+
 
     $(".sortableList").sortable();
 
@@ -8,6 +10,7 @@ $(document).ready(function () {
 
         var data    = $(this).sortable("serialize");
         var postUrl = $(this).attr("postUrl");
+
 
         $.post(base_url + postUrl,{data:data},function(response){})
 

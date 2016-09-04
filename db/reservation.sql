@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50625
 File Encoding         : 65001
 
-Date: 2016-08-15 01:54:23
+Date: 2016-09-04 23:57:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -47,11 +47,12 @@ CREATE TABLE `contact` (
   `meta_description` varchar(260) COLLATE utf8_turkish_ci DEFAULT NULL,
   `isActive` tinyint(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- ----------------------------
 -- Records of contact
 -- ----------------------------
+INSERT INTO `contact` VALUES ('1', 'KablosuzKedi', 'Kadikoy', '05077158109', '#', 'admin@kablosuzkedi.com', 'www.kablosuzkedi.com', '/kablosukedi', '/kablosukedi', '/kablosukedi', '/kablosukedi', '/kablosukedi', '/kablosukedi', 'miston', 'visyon', 'egitim oteli', null, null, null, null, null, null, null, null, null, '1');
 
 -- ----------------------------
 -- Table structure for room
@@ -78,8 +79,8 @@ CREATE TABLE `room` (
 -- ----------------------------
 -- Records of room
 -- ----------------------------
-INSERT INTO `room` VALUES ('1', 'İlk oda', '<p>aşlsdaşdkaslşdkdlşdskdlşklş adaksdşlaskldş</p>\r\n', '5m2', '101', '19.00', '2', null, null, '3', '0', '1', '1;4', 'Tennessee');
-INSERT INTO `room` VALUES ('2', '123123', '<p>123123133</p>\r\n', '1212', '121', '1212.00', '3', null, null, '7', '1', '0', '3;5', 'Delaware;Tennessee');
+INSERT INTO `room` VALUES ('1', 'İlk oda', '<p>aşlsdaşdkaslşdkdlşdskdlşklş adaksdşlaskldş</p>\r\n', '5m2', '101', '19.00', '2', null, null, '3', '1', '1', '1;4', '1');
+INSERT INTO `room` VALUES ('2', '123123', '<p>123123133</p>\r\n', '1212', '121', '1212.00', '3', null, null, '7', '1', '0', '3;5', '1;2');
 
 -- ----------------------------
 -- Table structure for room_availability
@@ -116,7 +117,7 @@ INSERT INTO `room_availability` VALUES ('81', '2016-09-07', '1', '0');
 INSERT INTO `room_availability` VALUES ('82', '2016-09-08', '1', '0');
 INSERT INTO `room_availability` VALUES ('83', '2016-09-01', '2', '1');
 INSERT INTO `room_availability` VALUES ('84', '2016-09-02', '2', '1');
-INSERT INTO `room_availability` VALUES ('85', '2016-09-03', '2', '1');
+INSERT INTO `room_availability` VALUES ('85', '2016-09-04', '2', '1');
 INSERT INTO `room_availability` VALUES ('86', '2016-09-01', '1', '1');
 INSERT INTO `room_availability` VALUES ('87', '2016-09-02', '1', '1');
 INSERT INTO `room_availability` VALUES ('88', '2016-09-03', '1', '1');
@@ -172,7 +173,7 @@ CREATE TABLE `room_category` (
   `rank` int(11) DEFAULT '0',
   `isActive` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- ----------------------------
 -- Records of room_category
@@ -183,7 +184,6 @@ INSERT INTO `room_category` VALUES ('3', 'Suit room', '4', '0');
 INSERT INTO `room_category` VALUES ('6', 'Kamill', '6', '1');
 INSERT INTO `room_category` VALUES ('7', 'Poğaça Bey', '2', '1');
 INSERT INTO `room_category` VALUES ('8', 'tfjghjfgjhf', '1', null);
-INSERT INTO `room_category` VALUES ('9', 'sadullah', '0', '0');
 
 -- ----------------------------
 -- Table structure for room_extra_services
@@ -202,7 +202,7 @@ CREATE TABLE `room_extra_services` (
 -- Records of room_extra_services
 -- ----------------------------
 INSERT INTO `room_extra_services` VALUES ('1', 'deneme', null, null, '1');
-INSERT INTO `room_extra_services` VALUES ('2', 'dghfhhh', null, null, '0');
+INSERT INTO `room_extra_services` VALUES ('2', 'dghfhhh', null, null, '1');
 
 -- ----------------------------
 -- Table structure for room_image
@@ -221,8 +221,28 @@ CREATE TABLE `room_image` (
 -- ----------------------------
 -- Records of room_image
 -- ----------------------------
-INSERT INTO `room_image` VALUES ('21', 'f9738bfe3cf98e87e5c1773e370693a7.JPG', '1', '1', '1', '0');
-INSERT INTO `room_image` VALUES ('22', '4604e5d23a69dd4c82885d156936255b.JPG', '1', '0', '0', '0');
+INSERT INTO `room_image` VALUES ('21', 'f9738bfe3cf98e87e5c1773e370693a7.JPG', '1', '1', '1', '1');
+INSERT INTO `room_image` VALUES ('22', '4604e5d23a69dd4c82885d156936255b.JPG', '2', '1', '0', '1');
+
+-- ----------------------------
+-- Table structure for room_pricing
+-- ----------------------------
+DROP TABLE IF EXISTS `room_pricing`;
+CREATE TABLE `room_pricing` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `date` date DEFAULT NULL,
+  `room_id` int(11) DEFAULT NULL,
+  `price` double(10,2) DEFAULT '0.00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of room_pricing
+-- ----------------------------
+INSERT INTO `room_pricing` VALUES ('36', '2016-09-04', '2', '20.00');
+INSERT INTO `room_pricing` VALUES ('37', '2016-09-05', '2', '45.00');
+INSERT INTO `room_pricing` VALUES ('38', '2016-09-04', '1', '60.00');
+INSERT INTO `room_pricing` VALUES ('39', '2016-09-06', '1', '34.00');
 
 -- ----------------------------
 -- Table structure for room_properties
@@ -242,5 +262,5 @@ CREATE TABLE `room_properties` (
 -- ----------------------------
 INSERT INTO `room_properties` VALUES ('1', 'deneme12', null, '2', '1');
 INSERT INTO `room_properties` VALUES ('3', 'xcvxcv', null, '0', '1');
-INSERT INTO `room_properties` VALUES ('4', 'vbnvbnvn', null, '3', '0');
-INSERT INTO `room_properties` VALUES ('5', 'bnmbnmb', null, '1', '0');
+INSERT INTO `room_properties` VALUES ('4', 'vbnvbnvn', null, '3', '1');
+INSERT INTO `room_properties` VALUES ('5', 'bnmbnmb', null, '1', '1');

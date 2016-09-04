@@ -2,7 +2,6 @@
 jQuery(document).ready(function () {
     "use strict";
 
-	
     //Gmap
     if (jQuery().gMap) {
         jQuery('#map').gMap({
@@ -390,6 +389,10 @@ jQuery(document).ready(function () {
             total = +opt1.val() + +opt2.val();
             jQuery(".guests-select .total").html(total);
         });
+
+
+
+
 
 
 });

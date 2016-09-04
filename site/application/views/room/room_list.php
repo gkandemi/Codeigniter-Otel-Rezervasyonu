@@ -8,9 +8,8 @@
 
             <div class="row room-list fadeIn appear">
                 <!-- Room -->
-                <?php foreach($rooms as $room) { ?>
-
-                    <?php $room_category = $room_category_list[$room->room_type_id];?>
+                <?php foreach($rooms as $room) {
+                    $room_category = $room_category_list[$room->room_type_id];?>
 
                     <div class="col-sm-4 mb10 <?php echo get_class_name($room_category); ?>">
                         <div class="room-thumb">
@@ -33,7 +32,17 @@
                             <div class="mask">
                                 <div class="main">
                                     <h5><?php echo $room->title; ?></h5>
-                                    <div class="price">&euro; <?php echo $room->default_price; ?><span> gecelik</span></div>
+                                    <div class="price">
+                                        <?php
+                                        $price = get_prices(array("room_id"=> $room->id));
+                                        if($price == "null"){
+                                            echo $room->default_price;
+                                        }else{
+                                            echo $price;
+                                        }
+                                        ?>
+                                        <span> gecelik</span>
+                                    </div>
                                 </div>
                                 <div class="content">
                                     <div style="height: 100px;">
@@ -57,7 +66,7 @@
                                         </div>
 
                                     </div>
-                                    <a href="room-detail.html" class="btn btn-primary btn-block">Görüntüle</a>
+                                    <a href="<?php echo base_url("room/room_detail/$room->id"); ?>" class="btn btn-primary btn-block">Görüntüle</a>
                                 </div>
                             </div>
                         </div>

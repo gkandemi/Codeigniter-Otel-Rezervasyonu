@@ -10,6 +10,7 @@ class Room extends CI_Controller
 		$this->load->model("room_model");
 		$this->load->model("roomimage_model");
 		$this->load->model("roomavailability_model");
+		$this->load->model("roompricing_model");
 	}
 
 	public function index()
@@ -122,6 +123,7 @@ class Room extends CI_Controller
 
 		$items = $data["sortId"];
 
+
 		foreach($items as $rank => $id){
 
 			$this->room_model->update(
@@ -134,7 +136,9 @@ class Room extends CI_Controller
 
 		}
 
+
 	}
+
 	public function roomImageRankUpdate(){
 
 		parse_str($this->input->post("data"), $data);
@@ -229,7 +233,6 @@ class Room extends CI_Controller
 
 	}
 
-
 	/*
 	 * Availability Metodlari
 	 */
@@ -237,12 +240,13 @@ class Room extends CI_Controller
 	public function newAvailabilityPage($room_id){
 
 
+
 		$viewData =  new stdClass();
 		$viewData->room_id = $room_id;
 
 		$viewData->availabilities = $this->roomavailability_model->get_all(
 			array(
-				"room_id"	=> $room_id,
+				"room_id"	    => $room_id,
 				"daily_date >=" => date("Y-m-d")
 			),"daily_date ASC"
 		);
@@ -278,7 +282,7 @@ class Room extends CI_Controller
 
 			$record_test = $this->roomavailability_model->get(
 				array(
-					"room_id"	=> $room_id,
+					"room_id"	    => $room_id,
 					"daily_date"	=> $date->format("Y-m-d")
 				)
 			);
@@ -301,6 +305,165 @@ class Room extends CI_Controller
 
 
 	}
+
+	/*
+	 * Room Pricing Metodlari
+	 */
+    public function newPricingPage($room_id){
+
+
+        $viewData =  new stdClass();
+        $viewData->room_id = $room_id;
+
+        $viewData->prices = $this->roompricing_model->get_all(
+            array(
+                "room_id"	    => $room_id,
+                "date >=" => date("Y-m-d")
+            ),"date ASC"
+        );
+
+
+        $this->load->view("new_roompricing", $viewData);
+
+    }
+
+    public function addNewPricing($room_id){
+
+        //08/10/2016 - 08/25/2016
+
+        // 2016-08-10
+        $price = $this->input->post("price");
+        if($price == " "){
+            redirect(base_url("room/newPricingPage/$room_id"));
+        }
+
+        $pricing_date = explode("-", $this->input->post("pricing_date"));
+        $startDateArr  = explode("/", $pricing_date[0]);
+        $finishDateArr = explode("/",$pricing_date[1]);
+
+        $startDateStr  = trim($startDateArr[2]) . "-" . trim($startDateArr[0]) . "-" . trim($startDateArr[1]);
+        $finishDateStr = trim($finishDateArr[2]) . "-" . trim($finishDateArr[0]) . "-" . trim($finishDateArr[1]);
+
+        if($startDateStr < date("Y-m-d")){
+            redirect(base_url("room/newPricingPage/$room_id"));
+        }
+        $startDate  = new DateTime($startDateStr);
+        $finishDate = new DateTime(date("Y-m-d", strtotime("1 day" ,strtotime($finishDateStr))));
+
+        $interval = DateInterval::createFromDateString("1 day");
+
+        $period = new DatePeriod($startDate, $interval, $finishDate);
+            foreach ($period as $date) {
+
+            $record_test = $this->roompricing_model->get(
+                array(
+                    "room_id"	    => $room_id,
+                    "date"	        => $date->format("Y-m-d"),
+                )
+            );
+
+
+            if(empty($record_test)) {
+
+                $this->roompricing_model->add(
+                    array(
+                        "date"          => $date->format("Y-m-d"),
+                        "room_id"       => $room_id,
+                        "price"         => $price,
+                        )
+                    );
+                }else{
+                    $this->roompricing_model->update(
+                        array(
+                            "date"      => $date->format("Y-m-d"),
+                            "room_id"   => $room_id
+                        ),
+                        array(
+                            "price"     => $price
+                        )
+
+                    );
+
+            }
+            }
+
+        redirect(base_url("room/newPricingPage/$room_id"));
+
+
+
+    }
+
+    public function roomPricingDelete($id){
+
+        $room_id = $this->roompricing_model->get(array("id" => $id));
+        $room_id = $room_id->room_id;
+
+        $delete = $this->roompricing_model->delete(array("id" => $id));
+
+        redirect(base_url("room/newPricingPage/$room_id"));
+
+    }
+
+    public function getPrices($room_id){
+        //08/10/2016 - 08/25/2016
+
+        // 2016-08-10
+
+        $pricing_date = explode("-", $this->input->post("pricing_date"));
+        $startDateArr  = explode("/", $pricing_date[0]);
+        $finishDateArr = explode("/",$pricing_date[1]);
+
+        $startDateStr  = trim($startDateArr[2]) . "-" . trim($startDateArr[0]) . "-" . trim($startDateArr[1]);
+        $finishDateStr = trim($finishDateArr[2]) . "-" . trim($finishDateArr[0]) . "-" . trim($finishDateArr[1]);
+
+
+        $startDate  = new DateTime($startDateStr);
+        $finishDate = new DateTime(date("Y-m-d", strtotime("1 day" ,strtotime($finishDateStr))));
+
+        $interval = DateInterval::createFromDateString("1 day");
+
+        $period = new DatePeriod($startDate, $interval, $finishDate);
+
+        $day_price = array();
+
+        $default_price = $this->room_model->get(
+            array(
+                "id" => $room_id
+            )
+        );
+        foreach ($period as $date){
+        $record_test = $this->roompricing_model->get(
+            array(
+                "room_id"	    => $room_id,
+                "date"          => $date->format("Y-m-d")
+//                "date >="	    => $startDateStr,
+//                "date <="	    => $finishDateStr,
+            )
+        );
+            if($record_test){
+                array_push($day_price,$date->format("d-m-Y"),$record_test->price);
+            }else{
+                array_push($day_price,$date->format("d-m-Y"),$default_price->default_price);
+            }
+
+        }
+        $viewData = new stdClass();
+        $viewData->prices = $day_price;
+        $viewData->row_count = count($day_price);
+        $this->load->view("pricepage",$viewData);
+
+    }
+
+    public function getPricePage($room_id){
+
+        $viewData = new stdClass();
+        $viewData->room_id = $room_id;
+
+
+        $this->load->view("price",$viewData);
+
+
+    }
 
 }
 
